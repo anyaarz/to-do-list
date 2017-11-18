@@ -1,0 +1,40 @@
+ {% load staticfiles %}
+    <html>
+        <head>
+            <title>TO DO LIST</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+            <link rel="stylesheet" href="{% static 'css/test.css' %}">
+        </head>
+        <body>
+         <div class="page-header">
+             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-pencil"></span></a>
+             <h1><a href="/articles/all/">TO DO LIST</a></h1>
+         </div>
+         <div class="content container">
+            <div class="row">
+            {% for article in articles %}
+                <div class="col-6 col-lg-4">
+                    {% if article.published_date %}
+                        <div class="date">
+                            {{ article.published_date }}
+                        </div>
+                    {% endif %}
+    
+                    <h4>{{ article.title }}</h4>
+                    <p>{{ article.text }}</p>
+                    {% if article.completed == True %}
+                        <div class="alert alert-success" role="alert">
+                        <strong>Well done!</strong> You successfully done this important task.
+                        </div>
+                        {% endif %}
+                    <a class="btn btn-default" href="{% url 'post_edit' pk=article.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-default" href="{% url 'post_delete' pk=article.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+                </div>
+            {% endfor %}
+            {% block content %}{% endblock %}
+                </div>
+            </div>
+        </body>
+    </html>

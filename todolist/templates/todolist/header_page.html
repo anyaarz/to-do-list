@@ -1,0 +1,39 @@
+  {% load staticfiles %}
+    <html>
+        <head>
+            <title>TO DO LIST</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+            <link rel="stylesheet" href="{% static 'css/test.css' %}">
+        </head>
+        <body>
+         <div class="page-header">
+             <h1><a href="/articles/all/">TO DO LIST</a></h1>
+         </div>
+
+         <div class="content container">
+          <div class="col-12 col-md-9">
+          <div class="jumbotron">
+            <h1>Hello, world!</h1>
+            <p>Now you can easily create your own ToDoList. You'll never forget about important events in your life. Let's START!</p>
+          </div>
+          <div class="row">
+            <div class="col-6 col-lg-4">
+              <h2>CREATE</h2>
+              <p>You can create your task in one minute. Just fill all the gaps and click on SAVE buttton. When your task will be done, you can change it's status and task be lighted up with green line under it.</p>
+            </div>
+            <div class="col-6 col-lg-4">
+              <h2>CHANGE</h2>
+              <p>If you wrote something wrong or change your plans, don't worry. Just click on <i class="glyphicon glyphicon-pencil"></i> under your task and change the information you need.</p>
+            </div>
+            <div class="col-6 col-lg-4">
+              <h2>DELETE</h2>
+              <p> When there's too many tasks to do,it's difficult to navigate. You can easily delete them from ypur list! This <i class="glyphicon glyphicon-trash"></i> will help you</p>
+            </div><!--/span-->
+            <p><a href ="{% url 'post_new' %}" class="btn btn-lg btn-default"> START</a></p></div>
+        </div>
+
+        </body>
+    </html>
+
